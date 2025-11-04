@@ -33,3 +33,24 @@ filter.addEventListener('change', function () {
         mensaje.textContent = ''
     }
 })
+
+const searchInput = document.querySelector('#empleos-search-input')
+
+searchInput.addEventListener('input', function () {
+    console.log(searchInput.value)
+})
+
+searchInput.addEventListener('blur', function () {
+    console.log('El input ha perdido el foco')
+})
+
+const searchForm = document.querySelector('#empleos-search-form')
+searchForm.addEventListener('submit', function (event) {
+    event.preventDefault()
+    console.log('submit')
+})
+
+document.addEventListener('keydown', function (event) {
+    console.log(`Tecla presionada: ${event.key}`)
+    console.log('Esta pulsada la tecla shift?, event.shiftkey')
+}
