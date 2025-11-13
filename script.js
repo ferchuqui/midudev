@@ -8,6 +8,9 @@ botones.forEach(boton => {
     boton.disabled = true;
 });
 }) */
+
+
+
 const jobsListingSection = document.querySelector('.jobs-listings');
 
 jobsListingSection.addEventListener('click', function (event) {
@@ -22,6 +25,7 @@ jobsListingSection.addEventListener('click', function (event) {
 
 const filter = document.querySelector('#filter-location')
 const mensaje = document.querySelector ('#filter-selected-value')
+const jobs = document.querySelectorAll('.job-listing-card')
 
 filter.addEventListener('change', function () {
     const selectedValue = filter.value;
@@ -32,25 +36,14 @@ filter.addEventListener('change', function () {
     } else {
         mensaje.textContent = ''
     }
+    jobs.forEach (job => {
+        /* const modalidad = job.dataset.modalidad */
+        const modalidad = job.getAttribute('data-modalidad')
+
+        if (selectedValue === '' || modalidad === selectedValue) {
+            job.style.display = 'flex'
+        } else {
+            job.style.display = 'none'
+        }
 })
-
-const searchInput = document.querySelector('#empleos-search-input')
-
-searchInput.addEventListener('input', function () {
-    console.log(searchInput.value)
 })
-
-searchInput.addEventListener('blur', function () {
-    console.log('El input ha perdido el foco')
-})
-
-const searchForm = document.querySelector('#empleos-search-form')
-searchForm.addEventListener('submit', function (event) {
-    event.preventDefault()
-    console.log('submit')
-})
-
-document.addEventListener('keydown', function (event) {
-    console.log(`Tecla presionada: ${event.key}`)
-    console.log('Esta pulsada la tecla shift?, event.shiftkey')
-}
