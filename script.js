@@ -65,7 +65,7 @@ fetch('./data.json')
             <h3>${job.titulo}</h3>
             <small>${job.empresa} | ${job.ubicacion}</small>
             <p>${job.descripcion}</p>
-            </duv>
+            </div>
             <button class="button-apply-job">Aplicar</button>`
 
             container.appendChild (article);
