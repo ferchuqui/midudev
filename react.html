@@ -20,27 +20,25 @@
 
  <script type="text/babel">
   //Elemento de React
-  const titulo = <h1 style={{ color: "#09f"}}>Hola Bienvenido a React.js</h1>
+  
     
       //Componente de React
 
       function JobCard({ data,titulo, empresa, ubicacion, descripcion}) {
         const [isApplied, setIsApplied] = React.useState(false)
 
-        const text = isApplied ? "Aplicado" : "Aplicar botón"
-        const buttonClass = isApplied ? "is-applied" : ""
         
         function handleClick(){
           setIsApplied(!isApplied)
         }
-
+        
+        const text = isApplied ? "Aplicado" : "Aplicar botón"
+        const buttonClass = isApplied ? "is-applied" : ""
         return (
-          <article 
-             className="job-listing-card"
-             data-modalidad={data?.modalidad}
+          <article className="job-listing-card">
+             {/* data-modalidad={data?.modalidad}
              data-nivel={data?.nivel}
-             data-technology={data?.technology}
-             >
+             data-technology={data?.technology} */}
              <div>
                 <h3>{titulo}</h3>
                 <small>{empresa} - {ubicacion}</small>
@@ -48,8 +46,7 @@
              </div>
              <button 
              disabled={isApplied}
-             className={`button-apply-job ${isApplied ? "is-applied" : 
-             ``}`}
+             className={`button-apply-job`}
              onClick={handleClick}
              >{text}
              </button>
